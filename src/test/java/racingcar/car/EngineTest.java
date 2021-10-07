@@ -1,7 +1,6 @@
 package racingcar.car;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
-import racinggame.type.DriveType;
-import racinggame.config.Property;
 import racinggame.car.Engine;
+import racinggame.config.Property;
+import racinggame.exception.EngineDriveNotValidException;
+import racinggame.type.DriveType;
 
 @DisplayName("엔진")
 class EngineTest {
@@ -76,9 +74,10 @@ class EngineTest {
 		final Engine engine = new Engine();
 
 		// when
-		final ValidationException exception = assertThrows(ValidationException.class, () -> engine.drive(input));
+		assertThatExceptionOfType(EngineDriveNotValidException.class)
+			.isThrownBy(() -> engine.drive(input));
 
 		// then
-		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.NOT_VALID_DRIVE_INPUT);
+
 	}
 }

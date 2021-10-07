@@ -1,9 +1,8 @@
 package racinggame;
 
 import racinggame.car.Cars;
-import racinggame.exception.ValidationException;
-import racinggame.type.Message;
 import racinggame.input.InputService;
+import racinggame.type.Message;
 
 public class RacingCarGame {
 
@@ -30,8 +29,8 @@ public class RacingCarGame {
 	private void resetRoundCount() {
 		try {
 			this.roundCount = inputService.nextRoundCount();
-		} catch (final ValidationException | NumberFormatException ex) {
-			System.out.println(Message.RETRY_ROUND_COUNT);
+		} catch (final IllegalArgumentException ex) {
+			System.out.println(ex.getMessage());
 			resetRoundCount();
 		}
 	}
@@ -39,8 +38,8 @@ public class RacingCarGame {
 	private void resetCars() {
 		try {
 			this.cars = new Cars(inputService.nextCarNames());
-		} catch (final ValidationException ex) {
-			System.out.println(Message.RETRY_CAR_NAMES);
+		} catch (final IllegalArgumentException ex) {
+			System.out.println(ex.getMessage());
 			resetCars();
 		}
 	}

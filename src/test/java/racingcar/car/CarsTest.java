@@ -1,7 +1,6 @@
 package racingcar.car;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,9 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
 import racinggame.car.Cars;
+import racinggame.exception.CarAddException;
 
 @DisplayName("자동차들")
 class CarsTest {
@@ -50,10 +48,11 @@ class CarsTest {
 		final List<String> carNames = Arrays.asList("hyune", "honux", "hyune");
 
 		// when
-		final ValidationException exception = assertThrows(ValidationException.class, () -> new Cars(carNames));
+		assertThatExceptionOfType(CarAddException.class)
+			.isThrownBy(() -> new Cars(carNames));
 
 		// then
-		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.ALREADY_EXISTS_CAR);
+
 	}
 
 	@DisplayName("[성공] 정렬")

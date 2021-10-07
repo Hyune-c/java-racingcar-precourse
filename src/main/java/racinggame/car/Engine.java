@@ -1,7 +1,6 @@
 package racinggame.car;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
+import racinggame.exception.EngineDriveNotValidException;
 import racinggame.type.DriveType;
 import racinggame.config.Property;
 
@@ -13,7 +12,7 @@ public class Engine {
 
 	public DriveType drive(final Integer input) {
 		if (!isValid(input)) {
-			throw new ValidationException(ErrorCode.NOT_VALID_DRIVE_INPUT);
+			throw new EngineDriveNotValidException();
 		}
 
 		return (input >= STANDARD_NUMBER) ? DriveType.GO : DriveType.STOP;

@@ -1,15 +1,13 @@
 package racingcar.car;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
 import racinggame.car.Name;
+import racinggame.exception.NameCreateException;
 
 @DisplayName("이름")
 class NameTest {
@@ -42,9 +40,10 @@ class NameTest {
 		// given
 
 		// when
-		final ValidationException exception = assertThrows(ValidationException.class, () -> new Name(name));
+		assertThatExceptionOfType(NameCreateException.class)
+			.isThrownBy(() -> new Name(name));
 
 		// then
-		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.NOT_VALID_CAR_NAME);
+
 	}
 }

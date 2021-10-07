@@ -1,7 +1,6 @@
 package racinggame.car;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
+import racinggame.exception.NameCreateException;
 
 public class Name {
 
@@ -15,7 +14,7 @@ public class Name {
 
 	public Name(final String name) {
 		if (!isValid(name)) {
-			throw new ValidationException(ErrorCode.NOT_VALID_CAR_NAME);
+			throw new NameCreateException();
 		}
 
 		this.name = name;

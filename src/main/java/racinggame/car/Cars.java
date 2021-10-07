@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import racinggame.exception.ErrorCode;
-import racinggame.exception.ValidationException;
+import racinggame.exception.CarAddException;
 
 public class Cars {
 
@@ -31,7 +30,7 @@ public class Cars {
 
 	public void add(final Car newCar) {
 		if (cars.contains(newCar)) {
-			throw new ValidationException(ErrorCode.ALREADY_EXISTS_CAR);
+			throw new CarAddException();
 		}
 
 		cars.add(new Car(newCar));
