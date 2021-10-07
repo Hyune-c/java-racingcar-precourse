@@ -1,4 +1,4 @@
-package racingcar.input;
+package racinggame.input;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import racinggame.input.ParseUtil;
 
 /**
  * ParameterizedTest 와 Stream<Arguments> 을 사용하면 테스트 코드를 간소화할 수 있지만,
@@ -21,12 +19,12 @@ class ParseUtilTest {
 	void success_parse() {
 		// given
 		final String input = "pobi,honux,crong";
-		final int resultCount = input.split(",").length;
+		final int splitCount = input.split(",").length;
 
 		// when
 		final List<String> results = ParseUtil.parse(input);
 
 		// then
-		assertThat(results.size()).isEqualTo(resultCount);
+		assertThat(results.size()).isEqualTo(splitCount);
 	}
 }

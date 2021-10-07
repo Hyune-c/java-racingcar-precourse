@@ -1,4 +1,4 @@
-package racingcar.car;
+package racinggame.car;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import racinggame.type.DriveType;
-import racinggame.car.Distance;
 
 /**
  * ParameterizedTest 와 Stream<Arguments> 을 사용하면 테스트 코드를 간소화할 수 있지만,
@@ -16,7 +15,7 @@ import racinggame.car.Distance;
 @DisplayName("주행 거리")
 class DistanceTest {
 
-	@DisplayName("[성공] 총 주행 거리")
+	@DisplayName("총 주행 거리")
 	@ParameterizedTest
 	@CsvSource({
 		"4,GO,GO,GO,GO",
@@ -25,20 +24,19 @@ class DistanceTest {
 		"1,STOP,STOP,GO,STOP",
 		"0,STOP,STOP,STOP,STOP",
 	})
-	public void success_getTotal(final Integer driveDistance, final DriveType driveType1, final DriveType driveType2,
-		final DriveType driveType3,
-		final DriveType driveType4) {
+	void totalDistance(final int expectedDistance, final DriveType drive1, final DriveType drive2,
+		final DriveType drive3, final DriveType drive4) {
 		// given
 		final Distance distance = new Distance();
-		distance.add(driveType1);
-		distance.add(driveType2);
-		distance.add(driveType3);
-		distance.add(driveType4);
+		distance.add(drive1);
+		distance.add(drive2);
+		distance.add(drive3);
+		distance.add(drive4);
 
 		// when
 		final Integer result = distance.sum();
 
 		// then
-		assertThat(result).isEqualTo(driveDistance);
+		assertThat(result).isEqualTo(expectedDistance);
 	}
 }
