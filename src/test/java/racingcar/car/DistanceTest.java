@@ -24,17 +24,18 @@ class DistanceTest {
 		"1,STOP,STOP,GO,STOP",
 		"0,STOP,STOP,STOP,STOP",
 	})
-	public void success_getTotal(Integer driveDistance, DriveType driveType1, DriveType driveType2, DriveType driveType3,
-		DriveType driveType4) {
+	public void success_getTotal(final Integer driveDistance, final DriveType driveType1, final DriveType driveType2,
+		final DriveType driveType3,
+		final DriveType driveType4) {
 		// given
-		Distance distance = new Distance();
+		final Distance distance = new Distance();
 		distance.add(driveType1);
 		distance.add(driveType2);
 		distance.add(driveType3);
 		distance.add(driveType4);
 
 		// when
-		Integer result = distance.sum();
+		final Integer result = distance.sum();
 
 		// then
 		assertThat(result).isEqualTo(driveDistance);

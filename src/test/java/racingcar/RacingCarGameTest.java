@@ -15,11 +15,11 @@ class RacingCarGameTest {
 	@Test
 	void success_doGame() {
 		// given
-		List<String> carNames = Arrays.asList("hyune", "honux", "pobi", "crong", "java", "velog");
-		int roundCount = 20;
+		final List<String> carNames = Arrays.asList("hyune", "honux", "pobi", "crong", "java", "velog");
+		final int roundCount = 20;
 
 		// when
-		RacingCarGame racingCarGame = new RacingCarGame(new Cars(carNames), roundCount);
+		final RacingCarGame racingCarGame = new RacingCarGame(new Cars(carNames), roundCount);
 		racingCarGame.doGame();
 		racingCarGame.afterGame();
 

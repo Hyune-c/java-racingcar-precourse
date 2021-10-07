@@ -31,11 +31,11 @@ public class CarTest {
 	@RepeatedTest(100)
 	public void success() {
 		// given
-		String name = "hyune";
-		Random random = new Random();
+		final String name = "hyune";
+		final Random random = new Random();
 
 		// when
-		Car car = new Car(name);
+		final Car car = new Car(name);
 		for (int i = 0; i < roundCount; i++) {
 			car.drive(random.nextInt(driveGoInput));
 		}
@@ -51,10 +51,10 @@ public class CarTest {
 	@Test
 	public void success_deepCopy() {
 		// given
-		String name = "hyune";
-		Car car1 = new Car(name);
+		final String name = "hyune";
+		final Car car1 = new Car(name);
 		car1.drive(driveGoInput);
-		Car car2 = new Car(car1);
+		final Car car2 = new Car(car1);
 
 		assertThat(car1.getTotalDistance()).isEqualTo(car2.getTotalDistance());
 
@@ -69,11 +69,11 @@ public class CarTest {
 	@Test
 	public void success_equal_true() {
 		// given
-		String name = "hyune";
+		final String name = "hyune";
 
 		// when
-		Car car1 = new Car(name);
-		Car car2 = new Car(name);
+		final Car car1 = new Car(name);
+		final Car car2 = new Car(name);
 
 		// then
 		assertThat(car1).isEqualTo(car2);
@@ -83,12 +83,12 @@ public class CarTest {
 	@Test
 	public void success_equal_false() {
 		// given
-		String name1 = "hyune";
-		String name2 = "honux";
+		final String name1 = "hyune";
+		final String name2 = "honux";
 
 		// when
-		Car car1 = new Car(name1);
-		Car car2 = new Car(name2);
+		final Car car1 = new Car(name1);
+		final Car car2 = new Car(name2);
 
 		// then
 		assertThat(car1).isNotEqualTo(car2);
@@ -98,10 +98,10 @@ public class CarTest {
 	@Test
 	public void success_compare() {
 		// given
-		String name1 = "hyune";
-		String name2 = "honux";
-		Car car1 = new Car(name1);
-		Car car2 = new Car(name2);
+		final String name1 = "hyune";
+		final String name2 = "honux";
+		final Car car1 = new Car(name1);
+		final Car car2 = new Car(name2);
 
 		// when
 		car1.drive(driveGoInput);

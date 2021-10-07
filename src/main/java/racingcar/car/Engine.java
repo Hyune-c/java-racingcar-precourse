@@ -11,7 +11,7 @@ public class Engine {
 	private static final Integer MAX_NUMBER = Property.MAX_RANDOM_NUMBER;
 	private static final Integer STANDARD_NUMBER = Property.DRIVE_STANDARD_NUMBER;
 
-	public DriveType drive(Integer input) {
+	public DriveType drive(final Integer input) {
 		if (!isValid(input)) {
 			throw new ValidationException(ErrorCode.NOT_VALID_DRIVE_INPUT);
 		}
@@ -19,7 +19,7 @@ public class Engine {
 		return (input >= STANDARD_NUMBER) ? DriveType.GO : DriveType.STOP;
 	}
 
-	private boolean isValid(Integer input) {
+	private boolean isValid(final Integer input) {
 		return input >= MIN_NUMBER && input <= MAX_NUMBER;
 	}
 }

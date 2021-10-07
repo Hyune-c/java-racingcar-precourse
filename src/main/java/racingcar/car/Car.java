@@ -11,24 +11,24 @@ public class Car implements Comparable<Car> {
 	private final Engine engine;
 	private final Distance distance;
 
-	public Car(String name) {
+	public Car(final String name) {
 		this.name = new Name(name);
 		this.engine = new Engine();
 		this.distance = new Distance();
 	}
 
-	public Car(Car newCar) {
+	public Car(final Car newCar) {
 		this.name = new Name(newCar.getName());
 		this.engine = new Engine();
 		this.distance = new Distance(newCar.distance);
 	}
 
 	public void drive() {
-		int randomInput = new Random().nextInt(Property.MAX_RANDOM_NUMBER + 1);
+		final int randomInput = new Random().nextInt(Property.MAX_RANDOM_NUMBER + 1);
 		distance.add(engine.drive(randomInput));
 	}
 
-	public void drive(Integer input) {
+	public void drive(final Integer input) {
 		distance.add(engine.drive(input));
 	}
 
@@ -46,12 +46,14 @@ public class Car implements Comparable<Car> {
 	 * @return
 	 */
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(final Object o) {
+		if (this == o) {
 			return true;
-		if (!(o instanceof Car))
+		}
+		if (!(o instanceof Car)) {
 			return false;
-		Car car = (Car)o;
+		}
+		final Car car = (Car)o;
 		return getName().equals(car.getName());
 	}
 
@@ -66,7 +68,7 @@ public class Car implements Comparable<Car> {
 	 * @return
 	 */
 	@Override
-	public int compareTo(Car compareCar) {
+	public int compareTo(final Car compareCar) {
 		return compareCar.getTotalDistance().compareTo(this.getTotalDistance());
 	}
 }

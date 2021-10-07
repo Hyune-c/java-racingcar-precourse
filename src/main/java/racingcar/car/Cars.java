@@ -15,21 +15,21 @@ public class Cars {
 		this.cars = new ArrayList<>();
 	}
 
-	public Cars(List<String> newCarNames) {
+	public Cars(final List<String> newCarNames) {
 		this.cars = new ArrayList<>();
-		for (String newCarName : newCarNames) {
+		for (final String newCarName : newCarNames) {
 			add(new Car(newCarName));
 		}
 	}
 
-	public Cars(Cars newCars) {
+	public Cars(final Cars newCars) {
 		this.cars = new ArrayList<>();
 		for (int i = 0; i < newCars.size(); i++) {
 			add(new Car(newCars.getCar(i)));
 		}
 	}
 
-	public void add(Car newCar) {
+	public void add(final Car newCar) {
 		if (cars.contains(newCar)) {
 			throw new ValidationException(ErrorCode.ALREADY_EXISTS_CAR);
 		}
@@ -41,7 +41,7 @@ public class Cars {
 		return cars.size();
 	}
 
-	public Car getCar(Integer index) {
+	public Car getCar(final Integer index) {
 		return cars.get(index);
 	}
 
@@ -50,7 +50,7 @@ public class Cars {
 	}
 
 	public void driveAll() {
-		for (Car car : cars) {
+		for (final Car car : cars) {
 			car.drive();
 		}
 	}

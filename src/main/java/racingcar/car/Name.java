@@ -13,7 +13,7 @@ public class Name {
 
 	private final String name;
 
-	public Name(String name) {
+	public Name(final String name) {
 		if (!isValid(name)) {
 			throw new ValidationException(ErrorCode.NOT_VALID_CAR_NAME);
 		}
@@ -21,7 +21,7 @@ public class Name {
 		this.name = name;
 	}
 
-	private boolean isValid(String name) {
+	private boolean isValid(final String name) {
 		return name.matches(REGEX);
 	}
 

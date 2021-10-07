@@ -16,7 +16,7 @@ public class RacingCarGame {
 		this.inputService = new InputService();
 	}
 
-	public RacingCarGame(Cars cars, Integer roundCount) {
+	public RacingCarGame(final Cars cars, final Integer roundCount) {
 		this.inputService = new InputService();
 		this.cars = cars;
 		this.roundCount = roundCount;
@@ -30,7 +30,7 @@ public class RacingCarGame {
 	private void resetRoundCount() {
 		try {
 			this.roundCount = inputService.nextRoundCount();
-		} catch (ValidationException | NumberFormatException ex) {
+		} catch (final ValidationException | NumberFormatException ex) {
 			System.out.println(Message.RETRY_ROUND_COUNT);
 			resetRoundCount();
 		}
@@ -39,7 +39,7 @@ public class RacingCarGame {
 	private void resetCars() {
 		try {
 			this.cars = new Cars(inputService.nextCarNames());
-		} catch (ValidationException ex) {
+		} catch (final ValidationException ex) {
 			System.out.println(Message.RETRY_CAR_NAMES);
 			resetCars();
 		}
@@ -64,14 +64,14 @@ public class RacingCarGame {
 	}
 
 	public void afterGame() {
-		Cars winningCars = getFarthestCars(cars);
+		final Cars winningCars = getFarthestCars(cars);
 		System.out.println(Message.getWinning(winningCars));
 	}
 
-	private Cars getFarthestCars(Cars cars) {
-		Cars baseCars = new Cars(cars);
+	private Cars getFarthestCars(final Cars cars) {
+		final Cars baseCars = new Cars(cars);
 		baseCars.sort();
-		Cars farthestCars = new Cars();
+		final Cars farthestCars = new Cars();
 		farthestCars.add(baseCars.getCar(0));
 
 		for (int i = 1; i < baseCars.size()

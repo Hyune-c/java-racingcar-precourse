@@ -17,21 +17,21 @@ public enum Message {
 
 	private final String printString;
 
-	Message(String printString) {
+	Message(final String printString) {
 		this.printString = printString;
 	}
 
-	public static String getWinning(Cars winningCars) {
-		StringJoiner result = new StringJoiner(", ");
+	public static String getWinning(final Cars winningCars) {
+		final StringJoiner result = new StringJoiner(", ");
 		for (int i = 0; i < winningCars.size(); i++) {
 			result.add(winningCars.getCar(i).getName());
 		}
 		return result.toString() + Message.WINNING;
 	}
 
-	public static String getCarOutput(Car car) {
-		String distanceMark = "-";
-		String carDistanceOutput = new String(new char[car.getTotalDistance()]).replace("\0", distanceMark);
+	public static String getCarOutput(final Car car) {
+		final String distanceMark = "-";
+		final String carDistanceOutput = new String(new char[car.getTotalDistance()]).replace("\0", distanceMark);
 
 		return String.format("%1$-5s", car.getName()) + ": " + carDistanceOutput;
 	}

@@ -7,7 +7,7 @@ public class ParseUtil {
 
 	private static final String REGEX = ",";
 
-	public static List<String> parse(String input) {
+	public static List<String> parse(final String input) {
 		return Arrays.asList(input.split(REGEX));
 	}
 }

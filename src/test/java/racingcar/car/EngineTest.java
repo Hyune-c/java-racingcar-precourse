@@ -19,7 +19,7 @@ import racingcar.config.Property;
 class EngineTest {
 
 	public static String[] stopInputs() {
-		List<String> list = new ArrayList<>();
+		final List<String> list = new ArrayList<>();
 		for (int i = Property.MIN_RANDOM_NUMBER; i < Property.DRIVE_STANDARD_NUMBER - 1; i++) {
 			list.add(String.valueOf(i));
 		}
@@ -29,20 +29,20 @@ class EngineTest {
 	@DisplayName("[성공] 주행 시도 - 정지")
 	@ParameterizedTest
 	@MethodSource("stopInputs")
-	void success_drive_stop(Integer input) {
+	void success_drive_stop(final Integer input) {
 		// given
-		Engine engine = new Engine();
+		final Engine engine = new Engine();
 
 		// when
-		DriveType result = engine.drive(input);
+		final DriveType result = engine.drive(input);
 
 		// then
 		assertThat(result).isEqualTo(DriveType.STOP);
 	}
 
 	public static String[] goInputs() {
-		List<String> list = new ArrayList<>();
-		int bound = Property.MAX_RANDOM_NUMBER;
+		final List<String> list = new ArrayList<>();
+		final int bound = Property.MAX_RANDOM_NUMBER;
 		for (int i = Property.DRIVE_STANDARD_NUMBER; i < bound; i++) {
 			list.add(String.valueOf(i));
 		}
@@ -52,12 +52,12 @@ class EngineTest {
 	@DisplayName("[성공] 주행 시도 - 전진")
 	@ParameterizedTest
 	@MethodSource("goInputs")
-	void success_drive_go(Integer input) {
+	void success_drive_go(final Integer input) {
 		// given
-		Engine engine = new Engine();
+		final Engine engine = new Engine();
 
 		// when
-		DriveType result = engine.drive(input);
+		final DriveType result = engine.drive(input);
 
 		// then
 		assertThat(result).isEqualTo(DriveType.GO);
@@ -70,12 +70,12 @@ class EngineTest {
 	@DisplayName("[실패] 주행 시도")
 	@ParameterizedTest
 	@MethodSource("failedInputs")
-	void failed_drive(Integer input) {
+	void failed_drive(final Integer input) {
 		// given
-		Engine engine = new Engine();
+		final Engine engine = new Engine();
 
 		// when
-		ValidationException exception = assertThrows(ValidationException.class, () -> engine.drive(input));
+		final ValidationException exception = assertThrows(ValidationException.class, () -> engine.drive(input));
 
 		// then
 		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.NOT_VALID_DRIVE_INPUT);

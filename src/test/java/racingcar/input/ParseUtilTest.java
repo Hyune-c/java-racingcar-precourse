@@ -18,11 +18,11 @@ class ParseUtilTest {
 	@Test
 	void success_parse() {
 		// given
-		String input = "pobi,honux,crong";
-		int resultCount = input.split(",").length;
+		final String input = "pobi,honux,crong";
+		final int resultCount = input.split(",").length;
 
 		// when
-		List<String> results = ParseUtil.parse(input);
+		final List<String> results = ParseUtil.parse(input);
 
 		// then
 		assertThat(results.size()).isEqualTo(resultCount);

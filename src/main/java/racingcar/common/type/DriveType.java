@@ -9,7 +9,7 @@ public enum DriveType {
 	private final Integer moveDistance;
 	private final String description;
 
-	DriveType(Integer moveDistance, String description) {
+	DriveType(final Integer moveDistance, final String description) {
 		this.moveDistance = moveDistance;
 		this.description = description;
 	}

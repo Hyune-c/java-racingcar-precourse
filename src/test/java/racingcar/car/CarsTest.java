@@ -29,11 +29,11 @@ class CarsTest {
 	@Test
 	public void success_create() {
 		// given
-		List<String> carNames = Arrays.asList("hyune", "honux", "pobi");
-		int expectedSize = carNames.size();
+		final List<String> carNames = Arrays.asList("hyune", "honux", "pobi");
+		final int expectedSize = carNames.size();
 
 		// when
-		Cars cars = new Cars(carNames);
+		final Cars cars = new Cars(carNames);
 
 		// then
 		assertThat(cars.size()).isEqualTo(expectedSize);
@@ -46,10 +46,10 @@ class CarsTest {
 	@Test
 	public void failed_create() {
 		// given
-		List<String> carNames = Arrays.asList("hyune", "honux", "hyune");
+		final List<String> carNames = Arrays.asList("hyune", "honux", "hyune");
 
 		// when
-		ValidationException exception = assertThrows(ValidationException.class, () -> new Cars(carNames));
+		final ValidationException exception = assertThrows(ValidationException.class, () -> new Cars(carNames));
 
 		// then
 		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.ALREADY_EXISTS_CAR);
@@ -59,21 +59,21 @@ class CarsTest {
 	@Test
 	public void success_sort() {
 		// given
-		List<String> carNames = Arrays.asList("hyune", "honux", "pobi");
-		Cars cars = new Cars(carNames);
+		final List<String> carNames = Arrays.asList("hyune", "honux", "pobi");
+		final Cars cars = new Cars(carNames);
 
 		// totalDistance 조작. 0,1,2
 		cars.getCar(1).drive(driveGoInput);
 		cars.getCar(2).drive(driveGoInput);
 		cars.getCar(2).drive(driveGoInput);
 
-		int beforeTotalDistance = cars.getCar(targetIndex).getTotalDistance();
+		final int beforeTotalDistance = cars.getCar(targetIndex).getTotalDistance();
 
 		// when
 		cars.sort();
 
 		// then
-		int afterTotalDistance = cars.getCar(targetIndex).getTotalDistance();
+		final int afterTotalDistance = cars.getCar(targetIndex).getTotalDistance();
 		assertThat(beforeTotalDistance).isNotEqualTo(afterTotalDistance);
 
 		System.out.println(

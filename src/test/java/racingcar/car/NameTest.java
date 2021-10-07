@@ -20,11 +20,11 @@ class NameTest {
 	@DisplayName("[성공] 이름 생성")
 	@ParameterizedTest
 	@MethodSource("validNames")
-	void success_create(String name) {
+	void success_create(final String name) {
 		// given
 
 		// when
-		Name carName = new Name(name);
+		final Name carName = new Name(name);
 
 		// then
 		assertThat(carName.getName()).isEqualTo(name);
@@ -37,11 +37,11 @@ class NameTest {
 	@DisplayName("[실패] 이름 생성")
 	@ParameterizedTest
 	@MethodSource("notValidNames")
-	void failed_create(String name) {
+	void failed_create(final String name) {
 		// given
 
 		// when
-		ValidationException exception = assertThrows(ValidationException.class, () -> new Name(name));
+		final ValidationException exception = assertThrows(ValidationException.class, () -> new Name(name));
 
 		// then
 		assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.NOT_VALID_CAR_NAME);

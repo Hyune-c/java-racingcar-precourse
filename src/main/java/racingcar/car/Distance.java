@@ -13,20 +13,20 @@ public class Distance {
 		this.driveTypes = new ArrayList<>();
 	}
 
-	public Distance(Distance newDistance) {
+	public Distance(final Distance newDistance) {
 		this.driveTypes = new ArrayList<>();
-		for (DriveType driveType : newDistance.driveTypes) {
+		for (final DriveType driveType : newDistance.driveTypes) {
 			add(driveType);
 		}
 	}
 
-	public void add(DriveType driveType) {
+	public void add(final DriveType driveType) {
 		driveTypes.add(driveType);
 	}
 
 	public Integer sum() {
 		Integer result = 0;
-		for (DriveType driveType : driveTypes) {
+		for (final DriveType driveType : driveTypes) {
 			result += driveType.getMoveDistance();
 		}
 

@@ -9,7 +9,7 @@ public enum ErrorCode {
 
 	private final String description;
 
-	ErrorCode(String description) {
+	ErrorCode(final String description) {
 		this.description = description;
 	}
 
