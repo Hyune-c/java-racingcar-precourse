@@ -1,11 +1,11 @@
-package racingcar.car;
+package racinggame.car;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import racingcar.common.exception.ErrorCode;
-import racingcar.common.exception.ValidationException;
+import racinggame.exception.ErrorCode;
+import racinggame.exception.ValidationException;
 
 public class Cars {
 

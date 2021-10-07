@@ -1,9 +1,9 @@
-package racingcar.common.type;
+package racinggame.type;
 
 import java.util.StringJoiner;
 
-import racingcar.car.Car;
-import racingcar.car.Cars;
+import racinggame.car.Car;
+import racinggame.car.Cars;
 
 public enum Message {
 

@@ -7,6 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racinggame.input.ParseUtil;
+
 /**
  * ParameterizedTest 와 Stream<Arguments> 을 사용하면 테스트 코드를 간소화할 수 있지만,
  * Stream 의 사용이 제한되어 수동으로 테스트 케이스를 만들었습니다.

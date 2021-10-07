@@ -1,4 +1,4 @@
-package racingcar.common.exception;
+package racinggame.exception;
 
 public class ValidationException extends RuntimeException {
 

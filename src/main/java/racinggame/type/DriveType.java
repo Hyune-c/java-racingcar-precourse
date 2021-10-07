@@ -1,4 +1,4 @@
-package racingcar.common.type;
+package racinggame.type;
 
 public enum DriveType {
 

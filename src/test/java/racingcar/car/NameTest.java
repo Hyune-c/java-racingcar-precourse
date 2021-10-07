@@ -7,8 +7,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racingcar.common.exception.ErrorCode;
-import racingcar.common.exception.ValidationException;
+import racinggame.exception.ErrorCode;
+import racinggame.exception.ValidationException;
+import racinggame.car.Name;
 
 @DisplayName("이름")
 class NameTest {

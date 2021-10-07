@@ -10,8 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.common.exception.ErrorCode;
-import racingcar.common.exception.ValidationException;
+import racinggame.exception.ErrorCode;
+import racinggame.exception.ValidationException;
+import racinggame.car.Cars;
 
 @DisplayName("자동차들")
 class CarsTest {

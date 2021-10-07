@@ -1,9 +1,9 @@
-package racingcar;
+package racinggame;
 
-import racingcar.car.Cars;
-import racingcar.common.exception.ValidationException;
-import racingcar.common.type.Message;
-import racingcar.input.InputService;
+import racinggame.car.Cars;
+import racinggame.exception.ValidationException;
+import racinggame.type.Message;
+import racinggame.input.InputService;
 
 public class RacingCarGame {
 

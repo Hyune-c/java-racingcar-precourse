@@ -1,9 +1,9 @@
-package racingcar.car;
+package racinggame.car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.common.type.DriveType;
+import racinggame.type.DriveType;
 
 public class Distance {
 

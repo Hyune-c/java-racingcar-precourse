@@ -1,9 +1,9 @@
-package racingcar.car;
+package racinggame.car;
 
-import racingcar.common.exception.ErrorCode;
-import racingcar.common.exception.ValidationException;
-import racingcar.common.type.DriveType;
-import racingcar.config.Property;
+import racinggame.exception.ErrorCode;
+import racinggame.exception.ValidationException;
+import racinggame.type.DriveType;
+import racinggame.config.Property;
 
 public class Engine {
 

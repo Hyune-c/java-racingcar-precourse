@@ -1,9 +1,9 @@
-package racingcar.car;
+package racinggame.car;
 
 import java.util.Objects;
 import java.util.Random;
 
-import racingcar.config.Property;
+import racinggame.config.Property;
 
 public class Car implements Comparable<Car> {
 

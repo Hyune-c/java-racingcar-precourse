@@ -1,4 +1,4 @@
-package racingcar.config;
+package racinggame.config;
 
 public class Property {
 

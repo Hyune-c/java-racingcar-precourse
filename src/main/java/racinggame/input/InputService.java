@@ -1,9 +1,9 @@
-package racingcar.input;
+package racinggame.input;
 
 import java.util.List;
 import java.util.Scanner;
 
-import racingcar.common.type.Message;
+import racinggame.type.Message;
 
 public class InputService {
 
