@@ -11,7 +11,8 @@ public enum Message {
 	ENTER_ROUND_COUNT("시도할 회수는 몇회인가요?"),
 	GAME_RESULT_TITLE("실행 결과"),
 	RETRY_ROUND_COUNT("라운드 회수는 양의 정수로 입력해주세요."),
-	WINNING("가 최종 우승했습니다."),
+	WINNING_HEADER("최종 우승자는 "),
+	WINNING_TAIL(" 입니다."),
 	;
 
 	private final String printString;
@@ -25,7 +26,7 @@ public enum Message {
 		for (int i = 0; i < winningCars.size(); i++) {
 			result.add(winningCars.getCar(i).getName());
 		}
-		return result.toString() + Message.WINNING;
+		return WINNING_HEADER + result.toString() + WINNING_TAIL;
 	}
 
 	public static String getCarOutput(final Car car) {
