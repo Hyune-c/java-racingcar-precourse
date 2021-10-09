@@ -1,9 +1,10 @@
 package racinggame;
 
+import static racinggame.view.OutputView.*;
+
 import racinggame.car.Cars;
 import racinggame.car.WinningCars;
 import racinggame.input.InputService;
-import racinggame.type.Message;
 
 public class RacingCarGame {
 
@@ -31,7 +32,7 @@ public class RacingCarGame {
 		try {
 			this.roundCount = inputService.nextRoundCount();
 		} catch (final IllegalArgumentException ex) {
-			System.out.println(ex.getMessage());
+			printException(ex);
 			resetRoundCount();
 		}
 	}
@@ -40,18 +41,18 @@ public class RacingCarGame {
 		try {
 			this.cars = new Cars(inputService.nextCarNames());
 		} catch (final IllegalArgumentException ex) {
-			System.out.println(ex.getMessage());
+			printException(ex);
 			resetCars();
 		}
 	}
 
 	public void doGame() {
-		System.out.println();
-		System.out.println(Message.GAME_RESULT_TITLE);
+		println();
+		printResultTitle();
 
 		for (int i = 0; i < roundCount; i++) {
 			progressGame();
-			System.out.println();
+			println();
 		}
 	}
 
@@ -59,12 +60,12 @@ public class RacingCarGame {
 		cars.driveAll();
 
 		for (int j = 0; j < cars.size(); j++) {
-			System.out.println(Message.getCarOutput(cars.getCar(j)));
+			printCarOutput(cars.getCar(j));
 		}
 	}
 
 	public void afterGame() {
 		final WinningCars winningCars = WinningCars.of(cars);
-		System.out.println(Message.getWinning(winningCars));
+		printWinningCars(winningCars);
 	}
 }
