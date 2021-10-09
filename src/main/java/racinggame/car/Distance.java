@@ -10,15 +10,23 @@ public class Distance {
 
 	private final List<DriveType> driveTypes;
 
-	public Distance() {
+	private Distance() {
 		this.driveTypes = new ArrayList<>();
 	}
 
-	public Distance(final Distance newDistance) {
+	private Distance(final Distance newDistance) {
 		this.driveTypes = new ArrayList<>();
 		for (final DriveType driveType : newDistance.driveTypes) {
 			add(driveType);
 		}
+	}
+
+	public static Distance of() {
+		return new Distance();
+	}
+
+	public static Distance of(final Distance newDistance) {
+		return new Distance(newDistance);
 	}
 
 	public void add(final DriveType driveType) {
@@ -34,7 +42,7 @@ public class Distance {
 		return result;
 	}
 
-	// distance 객체는 totalDistance 로 같음을 판단합니다.
+	// totalDistance 로 같음을 판단합니다.
 	@Override
 	public boolean equals(final Object o) {
 		if (this == o)

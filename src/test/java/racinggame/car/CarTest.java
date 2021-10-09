@@ -13,8 +13,8 @@ import nextstep.utils.Randoms;
 @DisplayName("자동차")
 class CarTest {
 
-	private static final int DRIVE_GO_INPUT = 9;
-	private static final int DRIVE_STOP_INPUT = 0;
+	private static final int GO = 9;
+	private static final int STOP = 0;
 	private static final int ROUND_COUNT = 5;
 
 	/**
@@ -28,9 +28,9 @@ class CarTest {
 		final String name = "hyune";
 
 		// when
-		final Car car = new Car(name);
+		final Car car = Car.of(name);
 		for (int i = 0; i < ROUND_COUNT; i++) {
-			final Integer nextInt = Randoms.pickNumberInRange(1, DRIVE_GO_INPUT);
+			final Integer nextInt = Randoms.pickNumberInRange(1, GO);
 			car.drive(nextInt);
 		}
 
@@ -46,14 +46,14 @@ class CarTest {
 	void deepCopy() {
 		// given
 		final String name = "hyune";
-		final Car car1 = new Car(name);
-		car1.drive(DRIVE_GO_INPUT);
-		final Car car2 = new Car(car1);
+		final Car car1 = Car.of(name);
+		car1.drive(GO);
+		final Car car2 = Car.of(car1);
 
 		assertThat(car1.getTotalDistance()).isEqualTo(car2.getTotalDistance());
 
 		// when
-		car2.drive(DRIVE_GO_INPUT);
+		car2.drive(GO);
 
 		// then
 		assertThat(car2.getTotalDistance()).isGreaterThan(car1.getTotalDistance());
@@ -69,8 +69,8 @@ class CarTest {
 		// given
 
 		// when
-		final Car car1 = new Car(name1);
-		final Car car2 = new Car(name2);
+		final Car car1 = Car.of(name1);
+		final Car car2 = Car.of(name2);
 
 		// then
 		assertThat(car1.equals(car2)).isEqualTo(expected);
@@ -80,12 +80,12 @@ class CarTest {
 	@Test
 	void compare() {
 		// given
-		final Car car1 = new Car("hyune");
-		final Car car2 = new Car("honux");
+		final Car car1 = Car.of("hyune");
+		final Car car2 = Car.of("honux");
 
 		// when
-		car1.drive(DRIVE_GO_INPUT);
-		car2.drive(DRIVE_STOP_INPUT);
+		car1.drive(GO);
+		car2.drive(STOP);
 
 		// then
 		assertThat(car2).isGreaterThan(car1);

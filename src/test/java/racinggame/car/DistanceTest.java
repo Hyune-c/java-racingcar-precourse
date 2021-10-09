@@ -27,7 +27,7 @@ class DistanceTest {
 	void totalDistance(final int expectedDistance, final DriveType drive1, final DriveType drive2,
 		final DriveType drive3, final DriveType drive4) {
 		// given
-		final Distance distance = new Distance();
+		final Distance distance = Distance.of();
 		distance.add(drive1);
 		distance.add(drive2);
 		distance.add(drive3);

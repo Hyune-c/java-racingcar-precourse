@@ -19,7 +19,7 @@ public abstract class Cars {
 			throw new CarAddException();
 		}
 
-		cars.add(new Car(newCar));
+		cars.add(Car.of(newCar));
 	}
 
 	public int size() {

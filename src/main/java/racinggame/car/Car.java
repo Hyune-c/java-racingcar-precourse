@@ -11,20 +11,22 @@ public class Car implements Comparable<Car> {
 	private final Engine engine;
 	private final Distance distance;
 
-	public Car(final String name) {
-		this.name = new Name(name);
-		this.engine = new Engine();
-		this.distance = new Distance();
+	public Car(final Name name, final Engine engine, final Distance distance) {
+		this.name = name;
+		this.engine = engine;
+		this.distance = distance;
 	}
 
-	public Car(final Car newCar) {
-		this.name = new Name(newCar.getName());
-		this.engine = new Engine();
-		this.distance = new Distance(newCar.distance);
+	public static Car of(final String name) {
+		return new Car(Name.of(name), Engine.of(), Distance.of());
+	}
+
+	public static Car of(final Car newCar) {
+		return new Car(newCar.name, Engine.of(), Distance.of(newCar.distance));
 	}
 
 	public void drive() {
-		final int randomInput = Randoms.pickNumberInRange(1, Property.MAX_RANDOM_NUMBER);
+		final int randomInput = Randoms.pickNumberInRange(Property.MIN_RANDOM_NUMBER, Property.MAX_RANDOM_NUMBER);
 		distance.add(engine.drive(randomInput));
 	}
 
@@ -41,14 +43,10 @@ public class Car implements Comparable<Car> {
 	}
 
 	public boolean equalsDistance(final Car car) {
-		return car.distance.equals(this.distance);
+		return this.compareTo(car) == 0;
 	}
 
-	/**
-	 * 이름이 같다면 같은 자동차로 간주됩니다.
-	 * @param o
-	 * @return
-	 */
+	// 자동차 이름으로 같음을 판단합니다.
 	@Override
 	public boolean equals(final Object o) {
 		if (this == o) {
@@ -66,11 +64,7 @@ public class Car implements Comparable<Car> {
 		return Objects.hash(getName());
 	}
 
-	/**
-	 * 총 주행 거리를 비교합니다.
-	 * @param compareCar
-	 * @return
-	 */
+	// 총 주행 거리로 대소를 비교합니다.
 	@Override
 	public int compareTo(final Car compareCar) {
 		return compareCar.getTotalDistance().compareTo(this.getTotalDistance());

@@ -6,7 +6,7 @@ public class NormalCars extends Cars {
 
 	public NormalCars(final List<String> names) {
 		for (final String name : names) {
-			add(new Car(name));
+			add(Car.of(name));
 		}
 	}
 

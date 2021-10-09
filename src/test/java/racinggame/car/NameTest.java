@@ -21,7 +21,7 @@ class NameTest {
 		// given
 
 		// when
-		final Name carName = new Name(name);
+		final Name carName = Name.of(name);
 
 		// then
 		assertThat(carName.getName()).isEqualTo(name);
@@ -39,7 +39,7 @@ class NameTest {
 
 		// when
 		assertThatExceptionOfType(NameCreateException.class)
-			.isThrownBy(() -> new Name(name));
+			.isThrownBy(() -> Name.of(name));
 
 		// then
 

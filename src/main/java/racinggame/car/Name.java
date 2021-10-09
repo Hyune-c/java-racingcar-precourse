@@ -12,19 +12,22 @@ public class Name {
 
 	private final String name;
 
-	public Name(final String name) {
-		if (!isValid(name)) {
-			throw new NameCreateException();
-		}
-
+	private Name(final String name) {
+		createValidation(name);
 		this.name = name;
 	}
 
-	private boolean isValid(final String name) {
-		return name.matches(REGEX);
+	public static Name of(final String name) {
+		return new Name(name);
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	private void createValidation(final String name) {
+		if (!name.matches(REGEX)) {
+			throw new NameCreateException();
+		}
 	}
 }
