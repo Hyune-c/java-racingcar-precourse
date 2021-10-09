@@ -1,6 +1,7 @@
 package racinggame;
 
 import racinggame.car.Cars;
+import racinggame.car.WinningCars;
 import racinggame.input.InputService;
 import racinggame.type.Message;
 
@@ -63,21 +64,7 @@ public class RacingCarGame {
 	}
 
 	public void afterGame() {
-		final Cars winningCars = getFarthestCars(cars);
+		final WinningCars winningCars = WinningCars.of(cars);
 		System.out.println(Message.getWinning(winningCars));
-	}
-
-	private Cars getFarthestCars(final Cars cars) {
-		final Cars baseCars = new Cars(cars);
-		baseCars.sort();
-		final Cars farthestCars = new Cars();
-		farthestCars.add(baseCars.getCar(0));
-
-		for (int i = 1; i < baseCars.size()
-			&& farthestCars.getCar(0).getTotalDistance().equals(baseCars.getCar(i).getTotalDistance()); i++) {
-			farthestCars.add(baseCars.getCar(i));
-		}
-
-		return farthestCars;
 	}
 }

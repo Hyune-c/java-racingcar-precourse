@@ -3,7 +3,7 @@ package racinggame.type;
 import java.util.StringJoiner;
 
 import racinggame.car.Car;
-import racinggame.car.Cars;
+import racinggame.car.WinningCars;
 
 public enum Message {
 
@@ -21,11 +21,12 @@ public enum Message {
 		this.printString = printString;
 	}
 
-	public static String getWinning(final Cars winningCars) {
+	public static String getWinning(final WinningCars winningCars) {
 		final StringJoiner result = new StringJoiner(", ");
-		for (int i = 0; i < winningCars.size(); i++) {
-			result.add(winningCars.getCar(i).getName());
+		for (final Car car : winningCars.getCars()) {
+			result.add(car.getName());
 		}
+
 		return WINNING_HEADER + result.toString() + WINNING_TAIL;
 	}
 

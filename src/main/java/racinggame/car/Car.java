@@ -40,6 +40,10 @@ public class Car implements Comparable<Car> {
 		return distance.sum();
 	}
 
+	public boolean equalsDistance(final Car car) {
+		return car.distance.equals(this.distance);
+	}
+
 	/**
 	 * 이름이 같다면 같은 자동차로 간주됩니다.
 	 * @param o
