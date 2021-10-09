@@ -1,25 +1,19 @@
 package racinggame.input;
 
 import java.util.List;
-import java.util.Scanner;
 
+import nextstep.utils.Console;
 import racinggame.type.Message;
 
 public class InputService {
 
-	private final Scanner scanner;
-
-	public InputService() {
-		scanner = new Scanner(System.in);
-	}
-
 	public List<String> nextCarNames() {
 		System.out.println(Message.ENTER_CAR_NAME);
-		return ParseUtil.parse(scanner.nextLine());
+		return ParseUtil.parse(Console.readLine());
 	}
 
 	public Integer nextRoundCount() {
 		System.out.println(Message.ENTER_ROUND_COUNT);
-		return Integer.parseInt(scanner.nextLine());
+		return Integer.parseInt(Console.readLine());
 	}
 }

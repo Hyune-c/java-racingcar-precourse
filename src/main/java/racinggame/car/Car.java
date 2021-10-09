@@ -1,8 +1,8 @@
 package racinggame.car;
 
 import java.util.Objects;
-import java.util.Random;
 
+import nextstep.utils.Randoms;
 import racinggame.config.Property;
 
 public class Car implements Comparable<Car> {
@@ -24,7 +24,7 @@ public class Car implements Comparable<Car> {
 	}
 
 	public void drive() {
-		final int randomInput = new Random().nextInt(Property.MAX_RANDOM_NUMBER + 1);
+		final int randomInput = Randoms.pickNumberInRange(1, Property.MAX_RANDOM_NUMBER);
 		distance.add(engine.drive(randomInput));
 	}
 

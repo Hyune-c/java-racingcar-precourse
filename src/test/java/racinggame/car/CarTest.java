@@ -2,13 +2,13 @@ package racinggame.car;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.Random;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import nextstep.utils.Randoms;
 
 @DisplayName("자동차")
 class CarTest {
@@ -26,12 +26,11 @@ class CarTest {
 	void success() {
 		// given
 		final String name = "hyune";
-		final Random random = new Random();
 
 		// when
 		final Car car = new Car(name);
 		for (int i = 0; i < ROUND_COUNT; i++) {
-			final Integer nextInt = random.nextInt(DRIVE_GO_INPUT);
+			final Integer nextInt = Randoms.pickNumberInRange(1, DRIVE_GO_INPUT);
 			car.drive(nextInt);
 		}
 
