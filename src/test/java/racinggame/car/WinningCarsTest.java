@@ -21,11 +21,11 @@ class WinningCarsTest {
 		final Cars cars = new Cars(CAR_NAMES);
 
 		// 총 4 대의 자동차 중 2 대가 우승
-		cars.getCar(1).drive(GO);
-		cars.getCar(2).drive(GO);
-		cars.getCar(2).drive(GO);
-		cars.getCar(3).drive(GO);
-		cars.getCar(3).drive(GO);
+		cars.get(1).drive(GO);
+		cars.get(2).drive(GO);
+		cars.get(2).drive(GO);
+		cars.get(3).drive(GO);
+		cars.get(3).drive(GO);
 
 		// when
 		final WinningCars winningCars = WinningCars.of(cars);

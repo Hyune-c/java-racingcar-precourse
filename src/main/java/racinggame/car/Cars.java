@@ -24,7 +24,7 @@ public class Cars {
 	public Cars(final Cars newCars) {
 		this.cars = new ArrayList<>();
 		for (int i = 0; i < newCars.size(); i++) {
-			add(new Car(newCars.getCar(i)));
+			add(new Car(newCars.get(i)));
 		}
 	}
 
@@ -40,7 +40,7 @@ public class Cars {
 		return cars.size();
 	}
 
-	public Car getCar(final Integer index) {
+	public Car get(final Integer index) {
 		return cars.get(index);
 	}
 
@@ -52,5 +52,9 @@ public class Cars {
 		for (final Car car : cars) {
 			car.drive();
 		}
+	}
+
+	public List<Car> getCars() {
+		return Collections.unmodifiableList(cars);
 	}
 }

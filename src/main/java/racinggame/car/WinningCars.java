@@ -17,12 +17,12 @@ public class WinningCars {
 
 	public static WinningCars of(final Cars cars) {
 		cars.sort();
-		final Car farthestCar = cars.getCar(0);
+		final Car farthestCar = cars.get(0);
 
 		final List<Car> winningCars = new ArrayList<>();
 		winningCars.add(farthestCar);
-		for (int i = 1; i < cars.size() && farthestCar.equalsDistance(cars.getCar(i)); i++) {
-			winningCars.add(cars.getCar(i));
+		for (int i = 1; i < cars.size() && farthestCar.equalsDistance(cars.get(i)); i++) {
+			winningCars.add(cars.get(i));
 		}
 
 		return new WinningCars(winningCars);

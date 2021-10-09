@@ -29,7 +29,7 @@ class CarsTest {
 		// then
 		assertThat(cars.size()).isEqualTo(expectedSize);
 		for (int i = 0; i < cars.size(); i++) {
-			final Car car = cars.getCar(i);
+			final Car car = cars.get(i);
 			assertThat(car.getName()).isNotNull();
 		}
 	}
@@ -55,17 +55,17 @@ class CarsTest {
 		final Cars cars = new Cars(CAR_NAMES);
 
 		// totalDistance 조작. 0,1,2
-		cars.getCar(1).drive(DRIVE_GO_INPUT);
-		cars.getCar(2).drive(DRIVE_GO_INPUT);
-		cars.getCar(2).drive(DRIVE_GO_INPUT);
+		cars.get(1).drive(DRIVE_GO_INPUT);
+		cars.get(2).drive(DRIVE_GO_INPUT);
+		cars.get(2).drive(DRIVE_GO_INPUT);
 
-		final int beforeTotalDistance = cars.getCar(TARGET_INDEX).getTotalDistance();
+		final int beforeTotalDistance = cars.get(TARGET_INDEX).getTotalDistance();
 
 		// when
 		cars.sort();
 
 		// then
-		final int afterTotalDistance = cars.getCar(TARGET_INDEX).getTotalDistance();
+		final int afterTotalDistance = cars.get(TARGET_INDEX).getTotalDistance();
 		assertThat(beforeTotalDistance).isNotEqualTo(afterTotalDistance);
 
 		System.out.println(
