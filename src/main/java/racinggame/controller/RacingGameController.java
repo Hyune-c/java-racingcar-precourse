@@ -3,17 +3,17 @@ package racinggame.controller;
 import static racinggame.view.OutputView.*;
 
 import racinggame.car.Car;
-import racinggame.car.Cars;
+import racinggame.car.NormalCars;
 import racinggame.car.WinningCars;
 import racinggame.view.InputView;
 
 public class RacingGameController {
 
-	private final Cars cars;
+	private final NormalCars normalCars;
 	private final int roundCount;
 
-	private RacingGameController(final Cars cars, final Integer roundCount) {
-		this.cars = cars;
+	private RacingGameController(final NormalCars normalCars, final Integer roundCount) {
+		this.normalCars = normalCars;
 		this.roundCount = roundCount;
 	}
 
@@ -21,13 +21,13 @@ public class RacingGameController {
 		return new RacingGameController(inputCars(), inputRoundCount());
 	}
 
-	public static RacingGameController of(final Cars cars, final Integer roundCount) {
-		return new RacingGameController(cars, roundCount);
+	public static RacingGameController of(final NormalCars normalCars, final Integer roundCount) {
+		return new RacingGameController(normalCars, roundCount);
 	}
 
-	private static Cars inputCars() {
+	private static NormalCars inputCars() {
 		try {
-			return new Cars(InputView.nextCarNames());
+			return NormalCars.of(InputView.nextCarNames());
 		} catch (final IllegalArgumentException ex) {
 			printException(ex);
 			return inputCars();
@@ -54,15 +54,15 @@ public class RacingGameController {
 	}
 
 	private void progressGame() {
-		cars.driveAll();
+		normalCars.driveAll();
 
-		for (final Car car : cars.getCars()) {
+		for (final Car car : normalCars.getCars()) {
 			printCarOutput(car);
 		}
 	}
 
 	public void afterGame() {
-		final WinningCars winningCars = WinningCars.of(cars);
-		printWinningCars(winningCars);
+		final WinningCars winningCars = WinningCars.of(normalCars);
+		printCars(winningCars);
 	}
 }

@@ -3,7 +3,7 @@ package racinggame.view;
 import java.util.StringJoiner;
 
 import racinggame.car.Car;
-import racinggame.car.WinningCars;
+import racinggame.car.Cars;
 
 public class OutputView {
 
@@ -14,9 +14,9 @@ public class OutputView {
 	public OutputView() {
 	}
 
-	public static void printWinningCars(final WinningCars winningCars) {
+	public static void printCars(final Cars cars) {
 		final StringJoiner result = new StringJoiner(", ");
-		for (final Car car : winningCars.getCars()) {
+		for (final Car car : cars.getCars()) {
 			result.add(car.getName());
 		}
 

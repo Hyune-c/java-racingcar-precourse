@@ -18,17 +18,17 @@ class WinningCarsTest {
 	@Test
 	void create() {
 		// given
-		final Cars cars = new Cars(CAR_NAMES);
+		final NormalCars normalCars = NormalCars.of(CAR_NAMES);
 
 		// 총 4 대의 자동차 중 2 대가 우승
-		cars.get(1).drive(GO);
-		cars.get(2).drive(GO);
-		cars.get(2).drive(GO);
-		cars.get(3).drive(GO);
-		cars.get(3).drive(GO);
+		normalCars.get(1).drive(GO);
+		normalCars.get(2).drive(GO);
+		normalCars.get(2).drive(GO);
+		normalCars.get(3).drive(GO);
+		normalCars.get(3).drive(GO);
 
 		// when
-		final WinningCars winningCars = WinningCars.of(cars);
+		final WinningCars winningCars = WinningCars.of(normalCars);
 
 		// then
 		assertThat(winningCars.size()).isEqualTo(2);

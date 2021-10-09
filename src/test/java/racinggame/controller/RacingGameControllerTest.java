@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racinggame.car.Cars;
+import racinggame.car.NormalCars;
 
 @DisplayName("레이싱 게임")
 class RacingGameControllerTest {
@@ -19,7 +19,7 @@ class RacingGameControllerTest {
 		final int roundCount = 20;
 
 		// when
-		final RacingGameController racingGameController = RacingGameController.of(new Cars(carNames), roundCount);
+		final RacingGameController racingGameController = RacingGameController.of(NormalCars.of(carNames), roundCount);
 		racingGameController.doGame();
 		racingGameController.afterGame();
 
