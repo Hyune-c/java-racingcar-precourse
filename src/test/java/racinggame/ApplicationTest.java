@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import nextstep.test.NSTest;
 
-public class ApplicationTest extends NSTest {
+class ApplicationTest extends NSTest {
 
 	private static final int MOVING_FORWARD = 4;
 	private static final int STOP = 3;
@@ -31,6 +31,13 @@ public class ApplicationTest extends NSTest {
 		assertSimpleTest(() -> {
 			runNoLineFound("pobi,javaji");
 			verify(ERROR_MESSAGE);
+		});
+	}
+
+	@Test
+	void 이름에_대한_성공_처리() {
+		assertSimpleTest(() -> {
+			runNoLineFound("pobi,honux,crong");
 		});
 	}
 
