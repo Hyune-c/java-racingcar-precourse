@@ -10,9 +10,9 @@ import racinggame.view.InputView;
 public class RacingGameController {
 
 	private final NormalCars normalCars;
-	private final int roundCount;
+	private final RoundCount roundCount;
 
-	private RacingGameController(final NormalCars normalCars, final Integer roundCount) {
+	private RacingGameController(final NormalCars normalCars, final RoundCount roundCount) {
 		this.normalCars = normalCars;
 		this.roundCount = roundCount;
 	}
@@ -21,7 +21,7 @@ public class RacingGameController {
 		return new RacingGameController(inputCars(), inputRoundCount());
 	}
 
-	public static RacingGameController of(final NormalCars normalCars, final Integer roundCount) {
+	public static RacingGameController of(final NormalCars normalCars, final RoundCount roundCount) {
 		return new RacingGameController(normalCars, roundCount);
 	}
 
@@ -34,7 +34,7 @@ public class RacingGameController {
 		}
 	}
 
-	private static int inputRoundCount() {
+	private static RoundCount inputRoundCount() {
 		try {
 			return InputView.nextRoundCount();
 		} catch (final IllegalArgumentException ex) {
@@ -47,7 +47,7 @@ public class RacingGameController {
 		println();
 		printResultTitle();
 
-		for (int i = 0; i < roundCount; i++) {
+		for (int i = 0; i < roundCount.getValue(); i++) {
 			progressGame();
 			println();
 		}

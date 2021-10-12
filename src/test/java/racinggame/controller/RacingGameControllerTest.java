@@ -16,7 +16,7 @@ class RacingGameControllerTest {
 	void success() {
 		// given
 		final List<String> carNames = Arrays.asList("hyune", "honux", "pobi", "crong", "java", "velog");
-		final int roundCount = 20;
+		final RoundCount roundCount = RoundCount.of(20);
 
 		// when
 		final RacingGameController racingGameController = RacingGameController.of(NormalCars.of(carNames), roundCount);

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import nextstep.utils.Console;
+import racinggame.controller.RoundCount;
 
 public class InputView {
 
@@ -17,9 +18,9 @@ public class InputView {
 		return parse(Console.readLine(), REGEX);
 	}
 
-	public static Integer nextRoundCount() {
+	public static RoundCount nextRoundCount() {
 		System.out.println(ENTER_ROUND_COUNT);
-		return Integer.parseInt(Console.readLine());
+		return RoundCount.of(Integer.parseInt(Console.readLine()));
 	}
 
 	private static List<String> parse(final String input, final String regex) {
